@@ -60,4 +60,20 @@ describe("Turn", function () {
 
     expect(returnedCard).to.eql(turn.card);
   });
+
+  it("should be able to check the guess", function () {
+    const card = new Card(
+      1,
+      "What is your name?",
+      ["Sue", "Ray", "Tim"],
+      "Tim"
+    );
+    let turn = new Turn("Tim", card);
+
+    expect(turn.evaluateGuess()).to.equal(true);
+
+    turn = new Turn("Ray", card);
+
+    expect(turn.evaluateGuess()).to.equal(false);
+  });
 });
