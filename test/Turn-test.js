@@ -76,4 +76,20 @@ describe("Turn", function () {
 
     expect(turn.evaluateGuess()).to.equal(false);
   });
+
+  it("should be able to give feedback", function () {
+    const card = new Card(
+      1,
+      "What is your name?",
+      ["Sue", "Ray", "Tim"],
+      "Tim"
+    );
+    let turn = new Turn("Tim", card);
+
+    expect(turn.giveFeedback()).to.equal("correct");
+
+    turn = new Turn("Ray", card);
+
+    expect(turn.giveFeedback()).to.equal("incorrect");
+  });
 });
