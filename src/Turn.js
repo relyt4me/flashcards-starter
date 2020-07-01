@@ -17,17 +17,10 @@ class Turn {
 
   giveFeedback() {
     if (this.evaluateGuess()) {
-      return "correct";
+      return "correct!";
     } else {
-      return "incorrect";
+      return "incorrect!";
     }
   }
 }
 module.exports = Turn;
-
-// [ ] Guess String argument
-// - [ ] Card object argument
-// - [ ] returnGuess
-// - [ ] returnCard
-// - [ ] evaluateGuess
-// - [ ] giveFeedback
