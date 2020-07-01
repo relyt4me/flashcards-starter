@@ -14,9 +14,35 @@ describe("Turn", function () {
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it.skip("should store a userGuess", function () {
+  it("should store a userGuess", function () {
     const turn = new Turn("answer");
 
-    expect(turn.userGuess).to.equal;
+    expect(turn.userGuess).to.equal("answer");
+  });
+
+  it("should store a card object", function () {
+    const card = new Card(
+      1,
+      "What is your name?",
+      ["Sue", "Ray", "Tim"],
+      "Tim"
+    );
+    const turn = new Turn("Tim", card);
+
+    expect(turn.card).to.be.a("object");
+    expect(turn.card).to.eql(card);
+  });
+
+  it("should store a card object", function () {
+    const card = new Card(
+      1,
+      "What is your name?",
+      ["Sue", "Ray", "Tim"],
+      "Tim"
+    );
+    const turn = new Turn("answer", card);
+
+    expect(turn.card).to.be.a("object");
+    expect(turn.card).to.eql(card);
   });
 });
