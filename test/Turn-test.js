@@ -33,16 +33,31 @@ describe("Turn", function () {
     expect(turn.card).to.eql(card);
   });
 
-  it("should store a card object", function () {
+  it("should be able to return the guess", function () {
     const card = new Card(
       1,
       "What is your name?",
       ["Sue", "Ray", "Tim"],
       "Tim"
     );
-    const turn = new Turn("answer", card);
+    const turn = new Turn("Ray", card);
 
-    expect(turn.card).to.be.a("object");
-    expect(turn.card).to.eql(card);
+    const guess = turn.returnGuess();
+
+    expect(guess).to.equal(turn.userGuess);
+  });
+
+  it("should be able to return the card", function () {
+    const card = new Card(
+      1,
+      "What is your name?",
+      ["Sue", "Ray", "Tim"],
+      "Tim"
+    );
+    const turn = new Turn("Ray", card);
+
+    const returnedCard = turn.returnCard();
+
+    expect(returnedCard).to.eql(turn.card);
   });
 });
