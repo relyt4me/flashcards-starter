@@ -24,10 +24,3 @@ class Turn {
   }
 }
 module.exports = Turn;
-
-// [ ] Guess String argument
-// - [ ] Card object argument
-// - [ ] returnGuess
-// - [ ] returnCard
-// - [ ] evaluateGuess
-// - [ ] giveFeedback
