@@ -66,4 +66,16 @@ describe("Round", () => {
 
     expect(round.returnCurrentCard()).to.eql(card1);
   });
+
+  it("should start at turn 0", () => {
+    const round = new Round();
+
+    expect(round.turns).to.equal(0);
+  });
+
+  it("should start with no incorrect guesses", () => {
+    const round = new Round();
+
+    expect(round.incorrectGuesses).to.eql([]);
+  });
 });
