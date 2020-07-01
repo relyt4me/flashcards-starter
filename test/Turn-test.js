@@ -86,10 +86,10 @@ describe("Turn", function () {
     );
     let turn = new Turn("Tim", card);
 
-    expect(turn.giveFeedback()).to.equal("correct");
+    expect(turn.giveFeedback()).to.equal("correct!");
 
     turn = new Turn("Ray", card);
 
-    expect(turn.giveFeedback()).to.equal("incorrect");
+    expect(turn.giveFeedback()).to.equal("incorrect!");
   });
 });
