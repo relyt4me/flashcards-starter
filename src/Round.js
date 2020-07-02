@@ -1,17 +1,18 @@
-const Turn = require("../src/Turn");
+const Turn = require("./Turn");
 
 class Round {
   constructor(deck = {}) {
-    this.deck = deck.cards;
+    this.deck = deck;
     this.turns = 0;
     this.incorrectGuesses = [];
   }
+
   returnCurrentCard() {
-    return this.deck[0];
+    return this.deck.cards[this.turns];
   }
 
   takeTurn(guess) {
-    const playerTurn = new Turn(guess, this.deck.shift());
+    const playerTurn = new Turn(guess, this.returnCurrentCard());
     this.turns++;
     if (!playerTurn.evaluateGuess()) {
       this.incorrectGuesses.push(playerTurn.returnCard().id);
@@ -34,10 +35,3 @@ class Round {
 }
 
 module.exports = Round;
-// :sparkles: **Round Class and Test Suite** :sparkles:
-// - [ ] returnCurrentCard
-// - [ ] takeTurn
-// - [ ] calculatePercentCorrect
-// - [ ] endRound
-// - [ ] take in responses and record guesses
-// - [ ] testing
