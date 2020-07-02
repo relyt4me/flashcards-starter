@@ -11,13 +11,19 @@ class Round {
   }
 
   takeTurn(guess) {
-    const playerTurn = new Turn(guess, this.returnCurrentCard());
+    const guessedCard = this.deck.shift();
+    const playerTurn = new Turn(guess, guessedCard);
     this.turns++;
     if (!playerTurn.evaluateGuess()) {
-      this.incorrectGuesses.push(this.returnCurrentCard().id);
+      this.incorrectGuesses.push(guessedCard.id);
     }
-    this.deck.shift();
     return playerTurn.giveFeedback();
+  }
+
+  calculatePercentCorrect() {
+    return Math.floor(
+      (100 * (this.turns - this.incorrectGuesses.length)) / this.turns
+    );
   }
 }
 
