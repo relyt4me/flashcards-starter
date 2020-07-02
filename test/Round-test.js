@@ -39,7 +39,7 @@ describe("Round", () => {
 
     const round = new Round(deck);
 
-    expect(round.deck).to.eql([card1, card2, card3]);
+    expect(round.deck.cards).to.eql([card1, card2, card3]);
   });
 
   it("should be able to return the first card of the deck", () => {

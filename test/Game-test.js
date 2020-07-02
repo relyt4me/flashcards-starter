@@ -37,8 +37,18 @@ describe("Game", () => {
 
     const deck = game.createDeckOfCards(prototypeQuestions);
 
+    expect(deck[0]).to.be.an.instanceOf(Card);
     expect(deck[0].id).to.equal(prototypeQuestions[0]["id"]);
     expect(deck[3].question).to.equal(prototypeQuestions[3]["question"]);
     expect(deck[13].answers).to.eql(prototypeQuestions[13]["answers"]);
+  });
+
+  it("should pass the deck of cards into the new round", () => {
+    const game = new Game();
+
+    game.start();
+
+    expect(game.currentRound.deck).to.be.an.instanceOf(Deck);
+    expect(game.currentRound.deck.countCards()).to.equal(30);
   });
 });
