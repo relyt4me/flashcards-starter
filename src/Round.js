@@ -13,6 +13,10 @@ class Round {
   takeTurn(guess) {
     const playerTurn = new Turn(guess, this.returnCurrentCard());
     this.turns++;
+    if (!playerTurn.evaluateGuess()) {
+      this.incorrectGuesses.push(this.returnCurrentCard().id);
+    }
+    this.deck.shift();
     return playerTurn.giveFeedback();
   }
 }
