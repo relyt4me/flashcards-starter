@@ -164,7 +164,6 @@ describe("Round", () => {
     round.takeTurn("spleen");
 
     expect(round.returnCurrentCard()).to.eql(card3);
-    expect(round.deck.length).to.eql(1);
   });
 
   it("should be able to calculate the percent of Correct guesses", () => {
