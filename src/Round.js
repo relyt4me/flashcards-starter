@@ -11,11 +11,10 @@ class Round {
   }
 
   takeTurn(guess) {
-    const guessedCard = this.deck.shift();
-    const playerTurn = new Turn(guess, guessedCard);
+    const playerTurn = new Turn(guess, this.deck.shift());
     this.turns++;
     if (!playerTurn.evaluateGuess()) {
-      this.incorrectGuesses.push(guessedCard.id);
+      this.incorrectGuesses.push(playerTurn.returnCard().id);
     }
     return playerTurn.giveFeedback();
   }
@@ -24,6 +23,13 @@ class Round {
     return Math.floor(
       (100 * (this.turns - this.incorrectGuesses.length)) / this.turns
     );
+  }
+
+  endRound() {
+    console.log(
+      `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+    );
+    return `** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`;
   }
 }
 

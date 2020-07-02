@@ -61,8 +61,6 @@ describe("Deck", () => {
 
     const deck = new Deck([card1, card2, card3]);
 
-    numberOfCards = deck.countCards();
-
-    expect(numberOfCards).to.equal(3);
+    expect(deck.countCards()).to.equal(3);
   });
 });
