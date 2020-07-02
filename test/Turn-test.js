@@ -4,23 +4,23 @@ const expect = chai.expect;
 const Turn = require("../src/Turn");
 const Card = require("../src/Card");
 
-describe("Turn", function () {
-  it("should be a function", function () {
+describe("Turn", () => {
+  it("should be a function", () => {
     expect(Turn).to.be.a("function");
   });
 
-  it("should be an instance of Turn", function () {
+  it("should be an instance of Turn", () => {
     const turn = new Turn();
     expect(turn).to.be.an.instanceof(Turn);
   });
 
-  it("should store a userGuess", function () {
+  it("should store a userGuess", () => {
     const turn = new Turn("answer");
 
     expect(turn.userGuess).to.equal("answer");
   });
 
-  it("should store a card object", function () {
+  it("should store a card object", () => {
     const card = new Card(
       1,
       "What is your name?",
@@ -33,7 +33,7 @@ describe("Turn", function () {
     expect(turn.card).to.eql(card);
   });
 
-  it("should be able to return the guess", function () {
+  it("should be able to return the guess", () => {
     const card = new Card(
       1,
       "What is your name?",
@@ -47,7 +47,7 @@ describe("Turn", function () {
     expect(guess).to.equal(turn.userGuess);
   });
 
-  it("should be able to return the card", function () {
+  it("should be able to return the card", () => {
     const card = new Card(
       1,
       "What is your name?",
@@ -61,7 +61,7 @@ describe("Turn", function () {
     expect(returnedCard).to.eql(turn.card);
   });
 
-  it("should be able to check the guess", function () {
+  it("should be able to check the guess", () => {
     const card = new Card(
       1,
       "What is your name?",
@@ -77,7 +77,7 @@ describe("Turn", function () {
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
-  it("should be able to give feedback", function () {
+  it("should be able to give feedback", () => {
     const card = new Card(
       1,
       "What is your name?",
