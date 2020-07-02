@@ -29,7 +29,7 @@ When the round has begun you will have a question with multiple answers. Use the
 
 ## ScreenShots of Functionality
 
-![screenshot](images/image.png)
+![working application gif](docs/flashcardgame.gif)
 
 
 ## Resources
